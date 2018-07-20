@@ -1,4 +1,5 @@
 import os
+import sys
 import random
 
 # creates new test, train, and validation files
@@ -6,6 +7,9 @@ import random
 def splitter(source):
     """Split single-source data file into test and train"""
     directory = os.fsencode(source)
+    
+    if not os.path.exists('directory'):
+        sys.exit('invalid directory path')
     
     if not os.path.exists('TrainingData'):
         os.makedirs('TrainingData')
@@ -60,4 +64,9 @@ def splitter(source):
     print(train_count, 'training files.')
     print(test_count, 'testing files.')
     print(valid_count, 'validation files.')
-    return
+
+# run the splitter from the command line
+if len(sys.argv) != 1:
+    sys.exit("Usage: python dataSplitter.py 'filePath'")
+
+splitter(sys.argv[0])
