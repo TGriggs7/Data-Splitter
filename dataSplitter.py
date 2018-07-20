@@ -55,7 +55,7 @@ def splitter(source):
             os.rename(curPath, os.path.join(os.path.join(os.fsencode(newPath), classname), picname))
         class_count += 1
                 
-    pritn('Found', class_count), 'classes.')
+    print('Found', class_count, 'classes.')
     print('Found', train_count+test_count+valid_count, 'files.')
     print(train_count, 'training files.')
     print(test_count, 'testing files.')
